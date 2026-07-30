@@ -26,6 +26,7 @@ import com.mahmodhota.worldfood3dadventure.data.progress.GameProgressManager
 import com.mahmodhota.worldfood3dadventure.game.progress.PlayerProfile
 import com.mahmodhota.worldfood3dadventure.game.progress.ProgressionManager
 import com.mahmodhota.worldfood3dadventure.ui.match3.*
+import com.mahmodhota.worldfood3dadventure.ui.match3.components.PremiumColors
 import com.mahmodhota.worldfood3dadventure.ui.theme.WorldFood3DAdventureTheme
 
 /**
@@ -93,89 +94,91 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
-                    AnimatedContent(
-                        targetState = currentScreen,
-                        transitionSpec = {
-                            (fadeIn(animationSpec = tween(300)) + scaleIn(initialScale = 0.95f))
-                                .togetherWith(fadeOut(animationSpec = tween(300)))
-                        },
-                        label = "screenTransition"
-                    ) { targetScreen ->
-                        when (targetScreen) {
-                            AppScreen.WORLD_MAP_V2 -> {
-                                WorldMapScreenV2(
-                                    onLevelSelected = { countryId, levelNum ->
-                                        selectedLevelId = countryId
-                                        selectedMatch3Level = levelNum
-                                        currentScreen = AppScreen.PREMIUM_ADVENTURE
-                                    },
-                                    onTabSelected = { tab ->
-                                        currentScreen = when (tab) {
-                                            "book" -> AppScreen.FOOD_BOOK
-                                            "rewards" -> AppScreen.REWARDS
-                                            "profile" -> AppScreen.PROFILE
-                                            else -> AppScreen.WORLD_MAP_V2
+                    Box(modifier = Modifier.fillMaxSize().background(PremiumColors.DeepNavy)) {
+                        AnimatedContent(
+                            targetState = currentScreen,
+                            transitionSpec = {
+                                (fadeIn(animationSpec = tween(300)) + scaleIn(initialScale = 0.95f))
+                                    .togetherWith(fadeOut(animationSpec = tween(300)))
+                            },
+                            label = "screenTransition"
+                        ) { targetScreen ->
+                            when (targetScreen) {
+                                AppScreen.WORLD_MAP_V2 -> {
+                                    WorldMapScreenV2(
+                                        onLevelSelected = { countryId, levelNum ->
+                                            selectedLevelId = countryId
+                                            selectedMatch3Level = levelNum
+                                            currentScreen = AppScreen.PREMIUM_ADVENTURE
+                                        },
+                                        onTabSelected = { tab ->
+                                            currentScreen = when (tab) {
+                                                "book" -> AppScreen.FOOD_BOOK
+                                                "rewards" -> AppScreen.REWARDS
+                                                "profile" -> AppScreen.PROFILE
+                                                else -> AppScreen.WORLD_MAP_V2
+                                            }
                                         }
+                                    )
+                                }
+                                AppScreen.PREMIUM_ADVENTURE -> {
+                                    PremiumAdventureScreen(
+                                        countryId = selectedLevelId ?: "germany",
+                                        levelNumber = selectedMatch3Level,
+                                        onTabSelected = { tab ->
+                                            currentScreen = when (tab) {
+                                                "world" -> AppScreen.WORLD_MAP_V2
+                                                "rewards" -> AppScreen.REWARDS
+                                                "book" -> AppScreen.FOOD_BOOK
+                                                "profile" -> AppScreen.PROFILE
+                                                else -> AppScreen.PREMIUM_ADVENTURE
+                                            }
+                                        },
+                                        onSettingsClick = { /* Handle settings */ }
+                                    )
+                                }
+                                AppScreen.LEVEL_SELECTION -> {
+                                    LevelSelectionScreen(
+                                        countryId = selectedLevelId ?: "germany",
+                                        onLevelSelected = { num ->
+                                            selectedMatch3Level = num
+                                            currentScreen = AppScreen.MATCH3_GAME
+                                        },
+                                        onBackToMap = { currentScreen = AppScreen.WORLD_MAP_V2 }
+                                    )
+                                }
+                                    AppScreen.MATCH3_GAME -> {
+                                    Match3GameScreen(
+                                        countryId = selectedLevelId ?: "germany",
+                                        levelNumber = selectedMatch3Level,
+                                        onBackToMap = { currentScreen = AppScreen.LEVEL_SELECTION }
+                                    )
+                                }
+                                AppScreen.FOOD_BOOK -> PassportScreen(onTabSelected = { tab ->
+                                    currentScreen = when (tab) {
+                                        "world" -> AppScreen.WORLD_MAP_V2
+                                        "rewards" -> AppScreen.REWARDS
+                                        "profile" -> AppScreen.PROFILE
+                                        else -> AppScreen.FOOD_BOOK
                                     }
-                                )
+                                })
+                                AppScreen.REWARDS -> RewardsScreen(onTabSelected = { tab ->
+                                    currentScreen = when (tab) {
+                                        "world" -> AppScreen.WORLD_MAP_V2
+                                        "book" -> AppScreen.FOOD_BOOK
+                                        "profile" -> AppScreen.PROFILE
+                                        else -> AppScreen.REWARDS
+                                    }
+                                })
+                                AppScreen.PROFILE -> ProfileScreenV2(onTabSelected = { tab ->
+                                    currentScreen = when (tab) {
+                                        "world" -> AppScreen.WORLD_MAP_V2
+                                        "book" -> AppScreen.FOOD_BOOK
+                                        "rewards" -> AppScreen.REWARDS
+                                        else -> AppScreen.PROFILE
+                                    }
+                                })
                             }
-                            AppScreen.PREMIUM_ADVENTURE -> {
-                                PremiumAdventureScreen(
-                                    countryId = selectedLevelId ?: "germany",
-                                    levelNumber = selectedMatch3Level,
-                                    onTabSelected = { tab ->
-                                        currentScreen = when (tab) {
-                                            "world" -> AppScreen.WORLD_MAP_V2
-                                            "rewards" -> AppScreen.REWARDS
-                                            "book" -> AppScreen.FOOD_BOOK
-                                            "profile" -> AppScreen.PROFILE
-                                            else -> AppScreen.PREMIUM_ADVENTURE
-                                        }
-                                    },
-                                    onSettingsClick = { /* Handle settings */ }
-                                )
-                            }
-                            AppScreen.LEVEL_SELECTION -> {
-                                LevelSelectionScreen(
-                                    countryId = selectedLevelId ?: "germany",
-                                    onLevelSelected = { num ->
-                                        selectedMatch3Level = num
-                                        currentScreen = AppScreen.MATCH3_GAME
-                                    },
-                                    onBackToMap = { currentScreen = AppScreen.WORLD_MAP_V2 }
-                                )
-                            }
-                                AppScreen.MATCH3_GAME -> {
-                                Match3GameScreen(
-                                    countryId = selectedLevelId ?: "germany",
-                                    levelNumber = selectedMatch3Level,
-                                    onBackToMap = { currentScreen = AppScreen.LEVEL_SELECTION }
-                                )
-                            }
-                            AppScreen.FOOD_BOOK -> PassportScreen(onTabSelected = { tab ->
-                                currentScreen = when (tab) {
-                                    "world" -> AppScreen.WORLD_MAP_V2
-                                    "rewards" -> AppScreen.REWARDS
-                                    "profile" -> AppScreen.PROFILE
-                                    else -> AppScreen.FOOD_BOOK
-                                }
-                            })
-                            AppScreen.REWARDS -> RewardsScreen(onTabSelected = { tab ->
-                                currentScreen = when (tab) {
-                                    "world" -> AppScreen.WORLD_MAP_V2
-                                    "book" -> AppScreen.FOOD_BOOK
-                                    "profile" -> AppScreen.PROFILE
-                                    else -> AppScreen.REWARDS
-                                }
-                            })
-                            AppScreen.PROFILE -> ProfileScreenV2(onTabSelected = { tab ->
-                                currentScreen = when (tab) {
-                                    "world" -> AppScreen.WORLD_MAP_V2
-                                    "book" -> AppScreen.FOOD_BOOK
-                                    "rewards" -> AppScreen.REWARDS
-                                    else -> AppScreen.PROFILE
-                                }
-                            })
                         }
                     }
                 }

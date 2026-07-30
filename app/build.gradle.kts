@@ -42,6 +42,14 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    releaseImplementation(
+        "com.google.firebase:firebase-appcheck-playintegrity"
+    )
+
+    debugImplementation(
+        "com.google.firebase:firebase-appcheck-debug"
+    )
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)

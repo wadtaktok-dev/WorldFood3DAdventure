@@ -60,10 +60,10 @@ fun PremiumAdventureScreen(
     var focusedSection by remember { mutableStateOf("puzzle") }
 
     // Map State
-    var mapScale by remember { mutableStateOf(0.6f) }
+    var mapScale by remember { mutableStateOf(1.0f) }
     var mapOffset by remember { mutableStateOf(Offset(0f, 0f)) }
     val transformState = rememberTransformableState { zoomChange, offsetChange, _ ->
-        mapScale = (mapScale * zoomChange).coerceIn(0.4f, 4f)
+        mapScale = (mapScale * zoomChange).coerceIn(0.5f, 4f)
         mapOffset += offsetChange
     }
 
@@ -142,10 +142,12 @@ private fun AdventureMapSection(
             .fillMaxWidth()
             .padding(16.dp)
             .clip(RoundedCornerShape(24.dp))
-            .background(PremiumColors.DarkSlate)
+            .background(PremiumColors.DeepNavy)
             .border(1.dp, PremiumColors.WhiteLow, RoundedCornerShape(24.dp))
     ) {
-        val dynamicHeight = if (maxWidth > 600.dp) 450.dp else 300.dp
+        // Calculate responsive height based on 1000:500 (2:1) aspect ratio
+        val responsiveHeight = (maxWidth.value * (WorldMapGeometry.MAP_HEIGHT / WorldMapGeometry.MAP_WIDTH)).dp
+        val dynamicHeight = responsiveHeight.coerceIn(200.dp, 400.dp)
         
         Box(modifier = Modifier.height(dynamicHeight)) {
             WorldMapComponent(

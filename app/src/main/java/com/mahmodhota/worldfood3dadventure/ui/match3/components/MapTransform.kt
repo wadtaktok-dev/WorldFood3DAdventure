@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 
 /**
  * Authoritative transformation model for the World Map.
- * Decouples logical 1000x650 coordinates from screen pixels and user interaction.
+ * Decouples logical 1000x500 coordinates from screen pixels and user interaction.
  */
 data class MapTransform(
     val baseScale: Float,

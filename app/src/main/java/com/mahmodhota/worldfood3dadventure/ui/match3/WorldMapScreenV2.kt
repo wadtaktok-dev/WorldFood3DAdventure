@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -33,11 +34,14 @@ fun WorldMapScreenV2(
     onLevelSelected: (String, Int) -> Unit,
     onTabSelected: (String) -> Unit
 ) {
-    var mapScale by remember { mutableStateOf(0.85f) }
-    var offset by remember { mutableStateOf(Offset(-120f, -80f)) }
+    var mapScale by rememberSaveable { mutableStateOf(1.0f) }
+    var offsetX by rememberSaveable { mutableStateOf(0f) }
+    var offsetY by rememberSaveable { mutableStateOf(0f) }
+    
     val state = rememberTransformableState { zoomChange, offsetChange, _ ->
-        mapScale = (mapScale * zoomChange).coerceIn(0.5f, 3f)
-        offset += offsetChange
+        mapScale = (mapScale * zoomChange).coerceIn(0.5f, 4f)
+        offsetX += offsetChange.x
+        offsetY += offsetChange.y
     }
 
     var selectedCountryId by remember { mutableStateOf<String?>(null) }
@@ -46,11 +50,12 @@ fun WorldMapScreenV2(
     Scaffold(
         topBar = { TopStatusBar(onSettingsClick = {}) },
         bottomBar = { BottomNavigationBar(currentTab = "world", onTabSelected = onTabSelected) },
-        containerColor = Color(0xFF0D47A1)
+        containerColor = PremiumColors.DeepNavy,
+        contentWindowInsets = WindowInsets(0, 0, 0, 0)
     ) { innerPadding ->
         WorldMapComponent(
             mapScale = mapScale,
-            offset = offset,
+            offset = Offset(offsetX, offsetY),
             state = state,
             selectedCountryId = selectedCountryId,
             onCountryClick = { id ->
@@ -78,5 +83,3 @@ fun WorldMapScreenV2(
         )
     }
 }
-
-// Private components removed as they are now in WorldMapComponent.kt

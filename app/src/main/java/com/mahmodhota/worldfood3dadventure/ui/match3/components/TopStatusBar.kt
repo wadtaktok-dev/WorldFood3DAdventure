@@ -30,7 +30,7 @@ fun TopStatusBar(onSettingsClick: () -> Unit) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
         color = PremiumColors.DeepNavy,
-        shadowElevation = 12.dp
+        shadowElevation = 0.dp // Removed elevation to prevent potential white/gray line artifact
     ) {
         Row(
             modifier = Modifier

@@ -36,7 +36,7 @@ fun BottomNavigationBar(
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .shadow(12.dp, RoundedCornerShape(28.dp))
             .clip(RoundedCornerShape(28.dp)),
-        color = Color(0xFF1E1E1E),
+        color = PremiumColors.DarkSlate, // Changed from 0xFF1E1E1E to match theme
         tonalElevation = 8.dp
     ) {
         Row(
