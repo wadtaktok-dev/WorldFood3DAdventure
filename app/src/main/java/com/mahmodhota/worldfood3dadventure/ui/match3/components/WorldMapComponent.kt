@@ -46,16 +46,7 @@ fun WorldMapComponent(
     val density = LocalDensity.current
 
     // Cache Geometry Paths for Performance
-    val continentPaths = remember {
-        mapOf(
-            "na" to WorldMapGeometry.createNorthAmerica(),
-            "sa" to WorldMapGeometry.createSouthAmerica(),
-            "eu" to WorldMapGeometry.createEurope(),
-            "af" to WorldMapGeometry.createAfrica(),
-            "as" to WorldMapGeometry.createAsia(),
-            "au" to WorldMapGeometry.createAustralia()
-        )
-    }
+    val landPaths = remember { WorldMapGeometry.getLandPaths() }
 
     BoxWithConstraints(
         modifier = modifier
@@ -95,7 +86,7 @@ fun WorldMapComponent(
                     translate(baseOffsetX, baseOffsetY) {
                         scale(baseScale, pivot = Offset.Zero) {
                             // Layer 3-5: Continents, Coastline, Terrain Landmarks
-                            drawPremiumContinents(continentPaths)
+                            drawPremiumContinents(landPaths)
                             drawTerrainFeatures()
                             drawTravelRoutes(mapCoords, progressMap)
                         }
@@ -105,6 +96,7 @@ fun WorldMapComponent(
                 // Layer 8: Markers
                 LevelRegistry.allCountries.forEach { country ->
                     val logicalPos = mapCoords[country.levelId] ?: Offset.Zero
+                    val labelOffset = WorldMapGeometry.labelOffsets[country.levelId] ?: Offset.Zero
                     val progress = progressMap[country.levelId] ?: com.mahmodhota.worldfood3dadventure.game.progress.CountryProgress(country.levelId)
                     
                     val screenX = logicalPos.x * baseScale + baseOffsetX
@@ -117,6 +109,7 @@ fun WorldMapComponent(
                             isSelected = selectedCountryId == country.levelId,
                             onClick = { onCountryClick(country.levelId) },
                             onLongClick = { onCountryLongClick(country.levelId) },
+                            labelOffset = labelOffset,
                             modifier = Modifier.offset { 
                                 IntOffset(
                                     (screenX - 22.dp.toPx()).roundToInt(),
@@ -165,18 +158,18 @@ private fun OceanBackgroundLayer() {
     }
 }
 
-private fun DrawScope.drawPremiumContinents(paths: Map<String, Path>) {
+private fun DrawScope.drawPremiumContinents(paths: List<Path>) {
     val landBrush = Brush.linearGradient(
-        colors = listOf(Color(0xFF4CAF50), Color(0xFF66BB6A))
+        colors = listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))
     )
     
-    paths.values.forEach { path ->
+    paths.forEach { path ->
         // Drop Shadow
         translate(4f, 4f) {
-            drawPath(path, PremiumColors.LandShadow)
+            drawPath(path, Color.Black.copy(alpha = 0.4f))
         }
         // Coastal Highlight (Outer)
-        drawPath(path, PremiumColors.CoastHighlight, style = Stroke(width = 6f))
+        drawPath(path, Color(0xFF64FFDA).copy(alpha = 0.6f), style = Stroke(width = 4f))
         // Base Land
         drawPath(path, landBrush)
     }

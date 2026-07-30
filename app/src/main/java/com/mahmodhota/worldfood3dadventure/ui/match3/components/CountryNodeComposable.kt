@@ -42,6 +42,7 @@ fun CountryNodeComposable(
     isSelected: Boolean,
     onClick: () -> Unit,
     onLongClick: (() -> Unit)? = null,
+    labelOffset: androidx.compose.ui.geometry.Offset = androidx.compose.ui.geometry.Offset.Zero,
     modifier: Modifier = Modifier
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -62,7 +63,7 @@ fun CountryNodeComposable(
         label = "pulseAlpha"
     )
 
-    Column(
+    Box(
         modifier = modifier
             .scale(pressScale)
             .combinedClickable(
@@ -71,91 +72,91 @@ fun CountryNodeComposable(
                 onClick = onClick,
                 onLongClick = if (BuildConfig.DEBUG) onLongClick else null
             ),
-        horizontalAlignment = Alignment.CenterHorizontally
+        contentAlignment = Alignment.Center
     ) {
-        Box(contentAlignment = Alignment.Center) {
-            // Sparkles for completed countries
-            if (progress.isCompleted) {
-                SparkleEffect(modifier = Modifier.size(70.dp), count = 5)
-            }
+        // Sparkles for completed countries
+        if (progress.isCompleted) {
+            SparkleEffect(modifier = Modifier.size(70.dp), count = 5)
+        }
 
-            // Glow effect for active/selected
-            if (isSelected) {
-                Box(
-                    modifier = Modifier
-                        .size(60.dp)
-                        .background(
-                            Brush.radialGradient(listOf(PremiumColors.Gold.copy(alpha = pulseAlpha), Color.Transparent)),
-                            CircleShape
-                        )
-                )
-            }
-
-            // Node Circle
-            Surface(
+        // Glow effect for active/selected
+        if (isSelected) {
+            Box(
                 modifier = Modifier
-                    .size(44.dp)
-                    .clip(CircleShape)
-                    .border(
-                        width = if (isSelected) 3.dp else 1.5.dp,
-                        color = if (isSelected) PremiumColors.Gold else if (progress.isUnlocked) Color.White else Color.Gray.copy(alpha = 0.5f),
-                        shape = CircleShape
-                    ),
-                color = if (progress.isUnlocked) PremiumColors.DarkSlate else Color.Black.copy(alpha = 0.6f),
-                tonalElevation = 6.dp
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    if (!progress.isUnlocked) {
-                        Text(text = "🔒", fontSize = 18.sp)
-                    } else {
-                        Text(text = country.flagEmoji, fontSize = 22.sp)
-                    }
-                }
-            }
+                    .size(60.dp)
+                    .background(
+                        Brush.radialGradient(listOf(PremiumColors.Gold.copy(alpha = pulseAlpha), Color.Transparent)),
+                        CircleShape
+                    )
+            )
+        }
 
-            // Progress/Stars Overlay
-            if (progress.isUnlocked && !progress.isCompleted) {
-                val stars = progress.totalStars
-                if (stars > 0) {
-                    Surface(
-                        modifier = Modifier
-                            .offset(y = 22.dp)
-                            .shadow(4.dp, CircleShape),
-                        color = PremiumColors.Gold,
-                        shape = CircleShape
-                    ) {
-                        Text(
-                            text = "⭐ $stars",
-                            color = PremiumColors.DeepNavy,
-                            fontSize = 8.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
-                        )
-                    }
+        // Node Circle
+        Surface(
+            modifier = Modifier
+                .size(44.dp)
+                .clip(CircleShape)
+                .border(
+                    width = if (isSelected) 3.dp else 1.5.dp,
+                    color = if (isSelected) PremiumColors.Gold else if (progress.isUnlocked) Color.White else Color.Gray.copy(alpha = 0.5f),
+                    shape = CircleShape
+                ),
+            color = if (progress.isUnlocked) PremiumColors.DarkSlate else Color.Black.copy(alpha = 0.6f),
+            tonalElevation = 6.dp
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                if (!progress.isUnlocked) {
+                    Text(text = "🔒", fontSize = 18.sp)
+                } else {
+                    Text(text = country.flagEmoji, fontSize = 22.sp)
                 }
-            }
-            
-            if (progress.isCompleted) {
-                 Icon(
-                    imageVector = Icons.Default.CheckCircle,
-                    contentDescription = "Completed",
-                    tint = Color(0xFF4CAF50),
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .offset(x = 4.dp, y = (-4).dp)
-                        .size(20.dp)
-                        .background(Color.White, CircleShape)
-                )
             }
         }
 
-        Spacer(Modifier.height(6.dp))
+        // Progress/Stars Overlay
+        if (progress.isUnlocked && !progress.isCompleted) {
+            val stars = progress.totalStars
+            if (stars > 0) {
+                Surface(
+                    modifier = Modifier
+                        .offset(y = 22.dp)
+                        .shadow(4.dp, CircleShape),
+                    color = PremiumColors.Gold,
+                    shape = CircleShape
+                ) {
+                    Text(
+                        text = "⭐ $stars",
+                        color = PremiumColors.DeepNavy,
+                        fontSize = 8.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                    )
+                }
+            }
+        }
+        
+        if (progress.isCompleted) {
+             Icon(
+                imageVector = Icons.Default.CheckCircle,
+                contentDescription = "Completed",
+                tint = Color(0xFF4CAF50),
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .offset(x = 4.dp, y = (-4).dp)
+                    .size(20.dp)
+                    .background(Color.White, CircleShape)
+            )
+        }
 
         // Label with background for readability
         Surface(
             color = Color.Black.copy(alpha = 0.7f),
             shape = RoundedCornerShape(8.dp),
-            border = if (isSelected) BorderStroke(1.dp, PremiumColors.Gold.copy(alpha = 0.5f)) else null
+            border = if (isSelected) BorderStroke(1.dp, PremiumColors.Gold.copy(alpha = 0.5f)) else null,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .offset(y = 35.dp) // Base gap
+                .offset(x = (labelOffset.x * 0.4f).dp, y = (labelOffset.y * 0.4f).dp) // Scaled offset
         ) {
             Text(
                 text = country.displayName.uppercase(),
