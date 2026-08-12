@@ -1,0 +1,183 @@
+name: 🐛 Bug Report
+description: Report a reproducible problem in WorldFood 3D Adventure
+title: "[BUG] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🐛 WorldFood 3D Adventure — Bug Report
+
+        Thank you for helping improve WorldFood 3D Adventure.
+
+        Please provide as much information as possible so the issue
+        can be reproduced and investigated efficiently.
+
+        ⚠️ Never include passwords, API keys, access tokens,
+        signing credentials, keystore files, or other secrets.
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App Version
+      description: Which version of WorldFood 3D Adventure are you using?
+      placeholder: "Example: 1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Android Device
+      description: Which device are you using?
+      placeholder: "Example: Samsung Galaxy S24 / Pixel 8 / Android Emulator"
+    validations:
+      required: true
+
+  - type: input
+    id: android-version
+    attributes:
+      label: Android Version
+      placeholder: "Example: Android 15"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      description: Which part of the game is affected?
+      options:
+        - World / 3D Globe
+        - Country Selection
+        - Level Selection
+        - Match-3 Gameplay
+        - Passport
+        - Rewards
+        - Profile
+        - Settings
+        - Audio / Music
+        - Haptics
+        - Progression
+        - Firebase
+        - Performance
+        - Startup / Navigation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: If applicable, which in-game country is affected?
+      placeholder: "Example: Germany"
+
+  - type: input
+    id: level
+    attributes:
+      label: Level
+      description: If applicable, which level is affected?
+      placeholder: "Example: Level 15"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem Description
+      description: Clearly describe what went wrong.
+      placeholder: |
+        Explain the problem and what you observed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Tell us exactly how to reproduce the problem.
+      placeholder: |
+        1. Launch WorldFood 3D Adventure
+        2. Open Germany
+        3. Select Level 10
+        4. Tap Start Adventure
+        5. Perform ...
+        6. Observe the problem
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How Often Does It Happen?
+      options:
+        - Every time
+        - Often
+        - Sometimes
+        - Rarely
+        - Happened once
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Low — cosmetic or minor issue
+        - Medium — feature partially affected
+        - High — major gameplay problem
+        - Critical — crash, freeze, data loss, or game cannot continue
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Add relevant Logcat output or crash information if available.
+        Remove all sensitive information before posting.
+      render: shell
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or Videos
+      description: |
+        Drag and drop screenshots or screen recordings here if they help
+        demonstrate the problem.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add anything else that may help investigate the issue.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues before submitting this report.
+          required: true
+        - label: I tested the issue on the latest version available to me.
+          required: true
+        - label: I have not included passwords, API keys, tokens, keystores, or other secrets.
+          required: true
