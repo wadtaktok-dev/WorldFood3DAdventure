@@ -1,0 +1,96 @@
+name: Feature Request
+description: Suggest a new feature, improvement, or gameplay idea for WorldFood 3D Adventure
+title: "[FEATURE] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve WorldFood 3D Adventure!
+
+        Please describe your idea clearly and explain how it would improve the game.
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: Feature Summary
+      description: Briefly describe the feature or improvement you would like to see.
+      placeholder: Example: Add a new country chapter with new food-themed Match-3 levels.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-area
+    attributes:
+      label: Feature Area
+      description: Which part of the game does this request relate to?
+      options:
+        - Match-3 Gameplay
+        - World Map / 3D Globe
+        - Countries and Levels
+        - Food Tiles and Visuals
+        - Audio and Music
+        - Rewards and Progression
+        - Passport
+        - Profile
+        - Settings
+        - Performance
+        - Accessibility
+        - UI / UX
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: What problem would this feature solve, or why would it improve the player experience?
+      placeholder: Explain why this feature would be useful.
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how you imagine the feature working.
+      placeholder: Explain the desired behavior, screens, gameplay, or interaction.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions or designs?
+      placeholder: Optional alternative approaches.
+
+  - type: textarea
+    id: visual-reference
+    attributes:
+      label: Visual References
+      description: Add screenshots, sketches, mockups, or links that help explain your idea.
+      placeholder: Drag and drop images here or provide relevant links.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Suggested Priority
+      description: How important do you think this feature is?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before Submitting
+      options:
+        - label: I searched existing issues and did not find the same feature request.
+          required: true
+        - label: This request is related to WorldFood 3D Adventure.
+          required: true
+        - label: I have provided enough information to understand the requested feature.
+          required: true
