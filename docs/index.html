@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
 
@@ -9,1068 +8,1605 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <title>
+        WorldFood 3D Adventure | Travel · Food · Match-3
+    </title>
+
     <meta
         name="description"
-        content="WorldFood 3D Adventure is a premium Android Match-3 travel adventure. Explore the world, discover international food and master handcrafted puzzles."
+        content="WorldFood 3D Adventure is a premium Android Match-3 travel adventure. Explore seven countries, discover iconic food and master 105 handcrafted levels."
     >
 
     <meta
-        name="keywords"
-        content="WorldFood 3D Adventure, Android game, Match-3, food game, travel game, Kotlin, Jetpack Compose"
+        name="theme-color"
+        content="#03101f"
     >
 
-    <meta name="author" content="WorldFood 3D Adventure">
+    <!-- Open Graph -->
+    <meta
+        property="og:title"
+        content="WorldFood 3D Adventure"
+    >
 
-    <meta name="theme-color" content="#071426">
+    <meta
+        property="og:description"
+        content="Travel the world. Discover iconic dishes. Master handcrafted Match-3 adventures."
+    >
 
-    <title>WorldFood 3D Adventure | Travel · Food · Match-3</title>
+    <meta
+        property="og:type"
+        content="website"
+    >
 
-    <!-- Website styling -->
-    <link rel="stylesheet" href="styles.css">
+    <meta
+        property="og:url"
+        content="https://wadtaktok-dev.github.io/WorldFood3DAdventure/"
+    >
+
+    <!-- Twitter -->
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="WorldFood 3D Adventure"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Travel the world. Discover food. Master the puzzle."
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
 
 <body>
 
-    <!-- =========================================================
-         HEADER / NAVIGATION
-    ========================================================== -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <header class="site-header" data-header>
-        <div class="container nav-container">
+<header
+    class="site-header"
+    data-header
+>
+    <div class="container nav-shell">
 
-            <a
-                href="#home"
-                class="brand"
-                aria-label="WorldFood 3D Adventure Home"
-            >
-                <span class="brand-icon">🌍</span>
+        <a
+            href="#home"
+            class="brand"
+            aria-label="WorldFood 3D Adventure home"
+        >
+            <span class="brand-globe">
+                🌍
+            </span>
 
-                <span class="brand-text">
-                    WorldFood
-                    <strong>3D Adventure</strong>
-                </span>
-            </a>
+            <span class="brand-copy">
+                <strong>WorldFood</strong>
+                <small>3D ADVENTURE</small>
+            </span>
+        </a>
 
-            <nav class="desktop-nav" aria-label="Main navigation">
-                <a href="#home">Home</a>
-                <a href="#adventure">Adventure</a>
-                <a href="#features">Features</a>
-                <a href="#countries">Countries</a>
-                <a href="#gameplay">Gameplay</a>
-                <a href="#technology">Technology</a>
-                <a href="#about">About</a>
-            </nav>
-
-            <a
-                class="nav-cta"
-                href="#download"
-            >
-                Play Soon
-            </a>
-
-            <button
-                class="menu-button"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                data-menu-button
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
 
         <nav
-            class="mobile-menu"
-            data-mobile-menu
-            aria-label="Mobile navigation"
+            class="desktop-nav"
+            aria-label="Main navigation"
         >
             <a href="#home">Home</a>
             <a href="#adventure">Adventure</a>
-            <a href="#features">Features</a>
-            <a href="#countries">Countries</a>
+            <a href="#countries">World</a>
+            <a href="#food">Food</a>
             <a href="#gameplay">Gameplay</a>
-            <a href="#technology">Technology</a>
+            <a href="#features">Features</a>
             <a href="#about">About</a>
         </nav>
-    </header>
 
 
-    <main>
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section id="home" class="hero">
-
-            <div class="hero-glow hero-glow-one"></div>
-            <div class="hero-glow hero-glow-two"></div>
-
-            <div class="container hero-grid">
-
-                <div class="hero-content" data-reveal>
-
-                    <div class="eyebrow">
-                        🌎 PREMIUM ANDROID ADVENTURE
-                    </div>
-
-                    <h1>
-                        Travel the World.
-                        <span>Discover Food.</span>
-                        Master the Puzzle.
-                    </h1>
-
-                    <p class="hero-description">
-                        Begin an unforgettable journey through countries,
-                        cultures and international cuisine in
-                        <strong>WorldFood 3D Adventure</strong> —
-                        a premium Match-3 experience built for Android.
-                    </p>
-
-                    <div class="hero-actions">
-
-                        <a
-                            href="#adventure"
-                            class="button button-primary"
-                        >
-                            Start the Adventure
-                        </a>
-
-                        <a
-                            href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
-                            class="button button-secondary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View on GitHub
-                        </a>
-
-                    </div>
-
-                    <div class="hero-stats">
-
-                        <div class="stat">
-                            <strong>3</strong>
-                            <span>Countries</span>
-                        </div>
-
-                        <div class="stat">
-                            <strong>45+</strong>
-                            <span>Levels</span>
-                        </div>
-
-                        <div class="stat">
-                            <strong>50+</strong>
-                            <span>Food Icons</span>
-                        </div>
-
-                    </div>
-
-                </div>
+        <a
+            href="#release"
+            class="header-cta"
+        >
+            Play Soon
+        </a>
 
 
-                <div class="hero-visual" data-reveal>
+        <button
+            class="menu-button"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            data-menu-button
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-                    <div class="phone">
-
-                        <div class="phone-top">
-                            <span>WORLD TOUR</span>
-                            <span>⭐ 125</span>
-                        </div>
-
-                        <div class="phone-map">
-
-                            <div class="map-title">
-                                🌍 WORLD ADVENTURE
-                            </div>
-
-                            <div class="route route-one"></div>
-                            <div class="route route-two"></div>
-
-                            <div class="country-pin germany">
-                                🇩🇪
-                                <span>Germany</span>
-                            </div>
-
-                            <div class="country-pin italy">
-                                🇮🇹
-                                <span>Italy</span>
-                            </div>
-
-                            <div class="country-pin france">
-                                🇫🇷
-                                <span>France</span>
-                            </div>
-
-                            <div class="plane">✈️</div>
-
-                        </div>
+    </div>
 
 
-                        <div class="phone-level">
-                            <span>GERMANY</span>
-                            <strong>Level 10</strong>
-                        </div>
+    <nav
+        class="mobile-menu"
+        data-mobile-menu
+        aria-label="Mobile navigation"
+    >
+        <a href="#home">Home</a>
+        <a href="#adventure">Adventure</a>
+        <a href="#countries">World</a>
+        <a href="#food">Food</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#release">Play Soon</a>
+    </nav>
+</header>
 
 
-                        <div class="mini-board">
 
-                            <div>🍕</div>
-                            <div>🍔</div>
-                            <div>🍩</div>
-                            <div>🍎</div>
-                            <div>🍕</div>
+<main>
 
-                            <div>🍣</div>
-                            <div>🍩</div>
-                            <div>🍔</div>
-                            <div>🍕</div>
-                            <div>🍣</div>
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-                            <div>🍔</div>
-                            <div>🍎</div>
-                            <div>🍕</div>
-                            <div>🍩</div>
-                            <div>🍔</div>
+<section
+    class="hero"
+    id="home"
+>
 
-                            <div>🍩</div>
-                            <div>🍣</div>
-                            <div>🍎</div>
-                            <div>🍔</div>
-                            <div>🍕</div>
+    <div class="hero-light hero-light-left"></div>
+    <div class="hero-light hero-light-right"></div>
 
-                            <div>🍕</div>
-                            <div>🍔</div>
-                            <div>🍣</div>
-                            <div>🍎</div>
-                            <div>🍩</div>
 
-                        </div>
+    <div class="container hero-layout">
 
-                    </div>
+        <div
+            class="hero-copy"
+            data-reveal
+        >
 
-                </div>
+            <div class="hero-kicker">
+                <span class="kicker-dot"></span>
 
+                WORLD FOOD · MATCH-3 · TRAVEL ADVENTURE
             </div>
-        </section>
 
 
-        <!-- =====================================================
-             ADVENTURE
-        ====================================================== -->
+            <h1>
+                Travel the world.
 
-        <section id="adventure" class="section adventure-section">
+                <span>
+                    Discover the food.
+                </span>
 
-            <div class="container">
+                Master the puzzle.
+            </h1>
 
-                <div class="section-heading" data-reveal>
-                    <span class="section-label">
-                        THE JOURNEY
-                    </span>
 
-                    <h2>
-                        One Game.
-                        <span>A World of Adventure.</span>
-                    </h2>
+            <p class="hero-lead">
+                Begin a premium Match-3 journey across the world.
+                Discover iconic dishes, unlock destinations,
+                collect stars and master handcrafted challenges
+                in <strong>WorldFood 3D Adventure.</strong>
+            </p>
 
-                    <p>
-                        Explore a stylized world map, unlock countries,
-                        discover regional dishes and complete Match-3
-                        challenges as your journey continues.
-                    </p>
-                </div>
 
+            <div class="hero-buttons">
 
-                <div class="adventure-grid">
-
-                    <article class="adventure-card" data-reveal>
-                        <div class="card-number">01</div>
-                        <div class="card-icon">🌍</div>
-
-                        <h3>Explore the World</h3>
-
-                        <p>
-                            Travel through an interactive world map and
-                            unlock new destinations as you progress.
-                        </p>
-                    </article>
-
-
-                    <article class="adventure-card" data-reveal>
-                        <div class="card-number">02</div>
-                        <div class="card-icon">🍽️</div>
-
-                        <h3>Discover Food</h3>
-
-                        <p>
-                            Experience food inspired by countries and
-                            cultures from around the world.
-                        </p>
-                    </article>
-
-
-                    <article class="adventure-card" data-reveal>
-                        <div class="card-number">03</div>
-                        <div class="card-icon">🧩</div>
-
-                        <h3>Master Match-3</h3>
-
-                        <p>
-                            Solve handcrafted puzzles, create special
-                            tiles and trigger powerful chain reactions.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             FEATURES
-        ====================================================== -->
-
-        <section id="features" class="section features-section">
-
-            <div class="container">
-
-                <div class="section-heading" data-reveal>
-
-                    <span class="section-label">
-                        GAME FEATURES
-                    </span>
-
-                    <h2>
-                        Built for a
-                        <span>Premium Adventure</span>
-                    </h2>
-
-                    <p>
-                        WorldFood combines puzzle gameplay, travel,
-                        progression and international food in one
-                        Android experience.
-                    </p>
-
-                </div>
-
-
-                <div class="features-grid">
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">🗺️</div>
-                        <h3>Interactive World Map</h3>
-                        <p>
-                            Navigate a travel-inspired map with countries,
-                            routes, destinations and progression.
-                        </p>
-                    </article>
-
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">🍕</div>
-                        <h3>Food Puzzle Tiles</h3>
-                        <p>
-                            Match colorful food-inspired tiles designed
-                            around the international food theme.
-                        </p>
-                    </article>
-
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">💥</div>
-                        <h3>Special Tiles</h3>
-                        <p>
-                            Create row clears, column clears, bombs and
-                            powerful color bombs.
-                        </p>
-                    </article>
-
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">⭐</div>
-                        <h3>Level Progression</h3>
-                        <p>
-                            Earn stars, unlock new levels and continue
-                            your journey through each country.
-                        </p>
-                    </article>
-
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">🏆</div>
-                        <h3>Rewards</h3>
-                        <p>
-                            Build your adventure progress and collect
-                            rewards as you complete challenges.
-                        </p>
-                    </article>
-
-
-                    <article class="feature-card" data-reveal>
-                        <div class="feature-icon">📱</div>
-                        <h3>Responsive Android UI</h3>
-                        <p>
-                            Adaptive layouts are designed for different
-                            Android screen sizes.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             COUNTRIES
-        ====================================================== -->
-
-        <section id="countries" class="section countries-section">
-
-            <div class="container">
-
-                <div class="section-heading" data-reveal>
-
-                    <span class="section-label">
-                        DESTINATIONS
-                    </span>
-
-                    <h2>
-                        Your World Tour
-                        <span>Starts Here</span>
-                    </h2>
-
-                    <p>
-                        Every destination introduces its own atmosphere,
-                        progression and food-inspired adventure.
-                    </p>
-
-                </div>
-
-
-                <div class="country-grid">
-
-                    <article class="country-card" data-reveal>
-
-                        <div class="country-flag">
-                            🇩🇪
-                        </div>
-
-                        <div class="country-content">
-                            <span class="country-status">
-                                AVAILABLE
-                            </span>
-
-                            <h3>Germany</h3>
-
-                            <p>
-                                Begin your European journey and master
-                                the first collection of Match-3 challenges.
-                            </p>
-
-                            <div class="country-progress">
-                                <span>15 Levels</span>
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-
-                    </article>
-
-
-                    <article class="country-card" data-reveal>
-
-                        <div class="country-flag">
-                            🇮🇹
-                        </div>
-
-                        <div class="country-content">
-                            <span class="country-status">
-                                AVAILABLE
-                            </span>
-
-                            <h3>Italy</h3>
-
-                            <p>
-                                Continue south into a destination inspired
-                                by iconic Italian food and culture.
-                            </p>
-
-                            <div class="country-progress">
-                                <span>15 Levels</span>
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-
-                    </article>
-
-
-                    <article class="country-card" data-reveal>
-
-                        <div class="country-flag">
-                            🇫🇷
-                        </div>
-
-                        <div class="country-content">
-                            <span class="country-status">
-                                AVAILABLE
-                            </span>
-
-                            <h3>France</h3>
-
-                            <p>
-                                Continue the adventure through France with
-                                another set of handcrafted puzzle levels.
-                            </p>
-
-                            <div class="country-progress">
-                                <span>15 Levels</span>
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             GAMEPLAY
-        ====================================================== -->
-
-        <section id="gameplay" class="section gameplay-section">
-
-            <div class="container gameplay-grid">
-
-                <div class="gameplay-content" data-reveal>
-
-                    <span class="section-label">
-                        MATCH-3 GAMEPLAY
-                    </span>
-
-                    <h2>
-                        Match.
-                        <span>Combine.</span>
-                        Create Power.
-                    </h2>
-
-                    <p>
-                        Every move can create something more powerful.
-                        Match food tiles, complete objectives and use
-                        special combinations to clear the board.
-                    </p>
-
-
-                    <div class="gameplay-list">
-
-                        <div class="gameplay-item">
-                            <span>4️⃣</span>
-
-                            <div>
-                                <strong>Four-Tile Match</strong>
-                                <p>
-                                    Create powerful row or column clearing
-                                    special tiles.
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div class="gameplay-item">
-                            <span>💣</span>
-
-                            <div>
-                                <strong>T & L Matches</strong>
-                                <p>
-                                    Generate explosive bomb tiles for
-                                    larger board clears.
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div class="gameplay-item">
-                            <span>🌈</span>
-
-                            <div>
-                                <strong>Five-Tile Match</strong>
-                                <p>
-                                    Create a powerful color bomb and
-                                    transform the board.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="game-board-preview" data-reveal>
-
-                    <div class="board-header">
-
-                        <div>
-                            <small>GOAL</small>
-                            <strong>🍕 12 / 20</strong>
-                        </div>
-
-                        <div>
-                            <small>MOVES</small>
-                            <strong>18</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="large-board">
-
-                        <div>🍕</div>
-                        <div>🍩</div>
-                        <div>🍣</div>
-                        <div>🍔</div>
-                        <div>🍎</div>
-                        <div>🍕</div>
-
-                        <div>🍣</div>
-                        <div>🍔</div>
-                        <div>🍎</div>
-                        <div>🍕</div>
-                        <div>🍩</div>
-                        <div>🍣</div>
-
-                        <div>🍩</div>
-                        <div>🍕</div>
-                        <div>💣</div>
-                        <div>🍎</div>
-                        <div>🍣</div>
-                        <div>🍔</div>
-
-                        <div>🍎</div>
-                        <div>🍣</div>
-                        <div>🍔</div>
-                        <div>🌈</div>
-                        <div>🍕</div>
-                        <div>🍩</div>
-
-                        <div>🍔</div>
-                        <div>🍎</div>
-                        <div>🍕</div>
-                        <div>🍩</div>
-                        <div>🍣</div>
-                        <div>🍔</div>
-
-                        <div>🍕</div>
-                        <div>🍩</div>
-                        <div>🍣</div>
-                        <div>🍔</div>
-                        <div>🍎</div>
-                        <div>🍕</div>
-
-                    </div>
-
-
-                    <div class="boosters">
-
-                        <button type="button">
-                            🔨
-                            <span>Hammer</span>
-                        </button>
-
-                        <button type="button">
-                            🚀
-                            <span>Rocket</span>
-                        </button>
-
-                        <button type="button">
-                            ✋
-                            <span>Move</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             HOW TO PLAY
-        ====================================================== -->
-
-        <section class="section steps-section">
-
-            <div class="container">
-
-                <div class="section-heading" data-reveal>
-
-                    <span class="section-label">
-                        HOW IT WORKS
-                    </span>
-
-                    <h2>
-                        Your Adventure in
-                        <span>Four Steps</span>
-                    </h2>
-
-                </div>
-
-
-                <div class="steps">
-
-                    <article class="step" data-reveal>
-                        <span>01</span>
-                        <div class="step-icon">🗺️</div>
-                        <h3>Choose a Country</h3>
-                        <p>
-                            Select your next destination from the
-                            adventure map.
-                        </p>
-                    </article>
-
-
-                    <article class="step" data-reveal>
-                        <span>02</span>
-                        <div class="step-icon">🎯</div>
-                        <h3>Select a Level</h3>
-                        <p>
-                            Unlock challenges and choose your next
-                            puzzle.
-                        </p>
-                    </article>
-
-
-                    <article class="step" data-reveal>
-                        <span>03</span>
-                        <div class="step-icon">🧩</div>
-                        <h3>Complete the Puzzle</h3>
-                        <p>
-                            Match tiles, achieve goals and master
-                            special combinations.
-                        </p>
-                    </article>
-
-
-                    <article class="step" data-reveal>
-                        <span>04</span>
-                        <div class="step-icon">✈️</div>
-                        <h3>Continue the Journey</h3>
-                        <p>
-                            Earn stars and progress toward your next
-                            destination.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             TECHNOLOGY
-        ====================================================== -->
-
-        <section id="technology" class="section technology-section">
-
-            <div class="container">
-
-                <div class="section-heading" data-reveal>
-
-                    <span class="section-label">
-                        TECHNOLOGY
-                    </span>
-
-                    <h2>
-                        Built with
-                        <span>Modern Android Technology</span>
-                    </h2>
-
-                    <p>
-                        The game is developed as a modern native Android
-                        application with a scalable architecture.
-                    </p>
-
-                </div>
-
-
-                <div class="tech-grid">
-
-                    <div class="tech-card" data-reveal>
-                        <span>🟣</span>
-                        <strong>Kotlin</strong>
-                        <small>Primary Language</small>
-                    </div>
-
-                    <div class="tech-card" data-reveal>
-                        <span>🤖</span>
-                        <strong>Android</strong>
-                        <small>Native Platform</small>
-                    </div>
-
-                    <div class="tech-card" data-reveal>
-                        <span>🎨</span>
-                        <strong>Jetpack Compose</strong>
-                        <small>Modern UI</small>
-                    </div>
-
-                    <div class="tech-card" data-reveal>
-                        <span>🔥</span>
-                        <strong>Firebase</strong>
-                        <small>Cloud Services</small>
-                    </div>
-
-                    <div class="tech-card" data-reveal>
-                        <span>💾</span>
-                        <strong>DataStore</strong>
-                        <small>Local Progress</small>
-                    </div>
-
-                    <div class="tech-card" data-reveal>
-                        <span>⚡</span>
-                        <strong>Coroutines</strong>
-                        <small>Async Architecture</small>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             DEVELOPMENT
-        ====================================================== -->
-
-        <section id="about" class="section about-section">
-
-            <div class="container about-grid">
-
-                <div class="about-content" data-reveal>
-
-                    <span class="section-label">
-                        ABOUT THE PROJECT
-                    </span>
-
-                    <h2>
-                        Designed as More Than
-                        <span>Just a Puzzle Game</span>
-                    </h2>
-
-                    <p>
-                        WorldFood 3D Adventure combines world exploration,
-                        international food culture and Match-3 puzzle
-                        gameplay into one cohesive Android adventure.
-                    </p>
-
-                    <p>
-                        The project focuses on responsive UI,
-                        progression systems, special Match-3 mechanics,
-                        premium presentation and expandable world content.
-                    </p>
-
-
-                    <a
-                        href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary"
-                    >
-                        Explore the Repository
-                    </a>
-
-                </div>
-
-
-                <div class="project-card" data-reveal>
-
-                    <div class="project-card-header">
-                        <span>WORLD FOOD</span>
-                        <span>● ACTIVE DEVELOPMENT</span>
-                    </div>
-
-                    <div class="project-logo">
-                        🌍
-                    </div>
-
-                    <h3>WorldFood 3D Adventure</h3>
-
-                    <p>
-                        Premium Match-3 Travel Adventure
-                    </p>
-
-
-                    <div class="project-info">
-
-                        <div>
-                            <span>Platform</span>
-                            <strong>Android</strong>
-                        </div>
-
-                        <div>
-                            <span>Language</span>
-                            <strong>Kotlin</strong>
-                        </div>
-
-                        <div>
-                            <span>UI</span>
-                            <strong>Jetpack Compose</strong>
-                        </div>
-
-                        <div>
-                            <span>Genre</span>
-                            <strong>Match-3 Adventure</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- =====================================================
-             DOWNLOAD / CTA
-        ====================================================== -->
-
-        <section id="download" class="section download-section">
-
-            <div class="container">
-
-                <div class="download-card" data-reveal>
-
-                    <span class="section-label">
-                        THE JOURNEY IS JUST BEGINNING
-                    </span>
-
-                    <h2>
-                        Ready to Explore
-                        <span>the World?</span>
-                    </h2>
-
-                    <p>
-                        WorldFood 3D Adventure is being prepared as a
-                        premium Android experience. More destinations,
-                        puzzles and food adventures are planned.
-                    </p>
-
-
-                    <div class="download-actions">
-
-                        <a
-                            href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="button button-primary"
-                        >
-                            View Project on GitHub
-                        </a>
-
-                        <a
-                            href="#home"
-                            class="button button-secondary"
-                        >
-                            Back to Top
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-grid">
-
-            <div class="footer-brand">
-
-                <a href="#home" class="brand">
-                    <span class="brand-icon">🌍</span>
-
-                    <span class="brand-text">
-                        WorldFood
-                        <strong>3D Adventure</strong>
-                    </span>
+                <a
+                    href="#adventure"
+                    class="button button-gold"
+                >
+                    Explore the Adventure
+                    <span>→</span>
                 </a>
 
+
+                <a
+                    href="#gameplay"
+                    class="button button-dark"
+                >
+                    View Gameplay
+                </a>
+
+            </div>
+
+
+            <div class="technology-badges">
+
+                <span>Android</span>
+                <span>Kotlin</span>
+                <span>Jetpack Compose</span>
+                <span>Match-3</span>
+
+            </div>
+
+
+            <div class="hero-statistics">
+
+                <div>
+                    <strong>105</strong>
+                    <span>Levels</span>
+                </div>
+
+                <div>
+                    <strong>7</strong>
+                    <span>Countries</span>
+                </div>
+
+                <div>
+                    <strong>15</strong>
+                    <span>Levels / Country</span>
+                </div>
+
+                <div>
+                    <strong>0</strong>
+                    <span>Ads</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PREMIUM GAME VISUAL -->
+
+        <div
+            class="hero-showcase"
+            data-reveal
+        >
+
+            <div class="world-orbit orbit-a"></div>
+            <div class="world-orbit orbit-b"></div>
+
+
+            <div class="world-globe">
+
+                <div class="globe-shine"></div>
+                <div class="globe-grid"></div>
+
+                <div class="land land-one"></div>
+                <div class="land land-two"></div>
+                <div class="land land-three"></div>
+
+                <div class="globe-marker marker-germany">
+                    🇩🇪
+                </div>
+
+                <div class="globe-marker marker-japan">
+                    🇯🇵
+                </div>
+
+                <div class="globe-marker marker-mexico">
+                    🇲🇽
+                </div>
+
+            </div>
+
+
+            <div class="floating-food floating-food-one">
+                🍕
+            </div>
+
+            <div class="floating-food floating-food-two">
+                🍣
+            </div>
+
+            <div class="floating-food floating-food-three">
+                🥨
+            </div>
+
+
+            <div class="game-preview-card">
+
+                <div class="preview-header">
+
+                    <div>
+                        <small>WORLD TOUR</small>
+                        <strong>GERMANY</strong>
+                    </div>
+
+                    <span>
+                        ⭐ 116
+                    </span>
+
+                </div>
+
+
+                <div class="preview-level">
+
+                    <div>
+                        <small>LEVEL</small>
+                        <strong>10</strong>
+                    </div>
+
+                    <div>
+                        <small>MOVES</small>
+                        <strong>28</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="preview-board">
+
+                    <span>🍎</span>
+                    <span>🥨</span>
+                    <span>🍓</span>
+                    <span>🍕</span>
+                    <span>🍇</span>
+
+                    <span>🍕</span>
+                    <span>🍇</span>
+                    <span>🥨</span>
+                    <span>🍎</span>
+                    <span>🍓</span>
+
+                    <span>🍓</span>
+                    <span>🍎</span>
+                    <span>💣</span>
+                    <span>🍇</span>
+                    <span>🥨</span>
+
+                    <span>🥨</span>
+                    <span>🍕</span>
+                    <span>🍇</span>
+                    <span>🌈</span>
+                    <span>🍎</span>
+
+                    <span>🍇</span>
+                    <span>🍓</span>
+                    <span>🍕</span>
+                    <span>🥨</span>
+                    <span>🍎</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="#adventure"
+        class="scroll-hint"
+        aria-label="Scroll to adventure"
+    >
+        <span>EXPLORE</span>
+        ↓
+    </a>
+
+</section>
+
+
+
+<!-- =========================================================
+     ADVENTURE
+========================================================= -->
+
+<section
+    class="section adventure-section"
+    id="adventure"
+>
+
+    <div class="container">
+
+        <div
+            class="section-intro centered"
+            data-reveal
+        >
+            <span class="section-label">
+                THE ADVENTURE
+            </span>
+
+            <h2>
+                One journey.
+                <span>
+                    A world of discovery.
+                </span>
+            </h2>
+
+            <p>
+                Every destination is connected through exploration,
+                food and handcrafted Match-3 gameplay.
+            </p>
+        </div>
+
+
+        <div class="adventure-grid">
+
+            <article
+                class="adventure-card"
+                data-reveal
+            >
+                <span class="card-number">
+                    01
+                </span>
+
+                <div class="large-icon">
+                    🌍
+                </div>
+
+                <h3>
+                    Explore the World
+                </h3>
+
                 <p>
-                    Travel the World · Discover Food · Master the Puzzle
+                    Travel across a premium world hub and unlock
+                    new destinations as your star collection grows.
+                </p>
+
+                <span class="card-link">
+                    World exploration →
+                </span>
+            </article>
+
+
+
+            <article
+                class="adventure-card featured"
+                data-reveal
+            >
+                <span class="card-number">
+                    02
+                </span>
+
+                <div class="large-icon">
+                    🍽️
+                </div>
+
+                <h3>
+                    Discover Food
+                </h3>
+
+                <p>
+                    Experience food-inspired destinations and
+                    discover dishes connected to cultures around
+                    the world.
+                </p>
+
+                <span class="card-link">
+                    Discover dishes →
+                </span>
+            </article>
+
+
+
+            <article
+                class="adventure-card"
+                data-reveal
+            >
+                <span class="card-number">
+                    03
+                </span>
+
+                <div class="large-icon">
+                    🧩
+                </div>
+
+                <h3>
+                    Master Match-3
+                </h3>
+
+                <p>
+                    Match tiles, create special pieces,
+                    trigger chain reactions and complete
+                    increasingly challenging objectives.
+                </p>
+
+                <span class="card-link">
+                    Master puzzles →
+                </span>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     COUNTRIES
+========================================================= -->
+
+<section
+    class="section countries-section"
+    id="countries"
+>
+
+    <div class="container">
+
+        <div
+            class="section-intro split-heading"
+            data-reveal
+        >
+
+            <div>
+                <span class="section-label">
+                    WORLD TOUR
+                </span>
+
+                <h2>
+                    Seven destinations.
+                    <span>
+                        One global adventure.
+                    </span>
+                </h2>
+            </div>
+
+            <p>
+                Progress from Europe across the world,
+                earning stars and unlocking every chapter
+                of the adventure.
+            </p>
+
+        </div>
+
+
+
+        <div class="country-grid">
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇩🇪</span>
+                    <span class="chapter">CHAPTER 01</span>
+                </div>
+
+                <h3>Germany</h3>
+
+                <p>
+                    Begin the world tour with traditional
+                    flavors and the first set of Match-3 challenges.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🥨 Pretzel</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇮🇹</span>
+                    <span class="chapter">CHAPTER 02</span>
+                </div>
+
+                <h3>Italy</h3>
+
+                <p>
+                    Continue into a colorful Italian chapter
+                    inspired by one of the world's most famous cuisines.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🍕 Pizza</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇫🇷</span>
+                    <span class="chapter">CHAPTER 03</span>
+                </div>
+
+                <h3>France</h3>
+
+                <p>
+                    Explore an elegant French chapter with
+                    distinctive food themes and new puzzle challenges.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🥐 Croissant</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇪🇸</span>
+                    <span class="chapter">CHAPTER 04</span>
+                </div>
+
+                <h3>Spain</h3>
+
+                <p>
+                    Travel south for a vibrant chapter inspired
+                    by Spanish cuisine and Mediterranean atmosphere.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🥘 Paella</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇯🇵</span>
+                    <span class="chapter">CHAPTER 05</span>
+                </div>
+
+                <h3>Japan</h3>
+
+                <p>
+                    Enter a refined Japanese chapter with
+                    new challenges and recognizable cuisine.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🍣 Sushi</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇲🇽</span>
+                    <span class="chapter">CHAPTER 06</span>
+                </div>
+
+                <h3>Mexico</h3>
+
+                <p>
+                    Discover a colorful Mexican destination
+                    filled with energy, food and Match-3 challenges.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🌮 Tacos</strong>
+                </div>
+            </article>
+
+
+
+            <article
+                class="country-card country-card-wide"
+                data-reveal
+            >
+                <div class="country-top">
+                    <span class="flag">🇸🇩</span>
+                    <span class="chapter">
+                        CHAPTER 07 · FINALE
+                    </span>
+                </div>
+
+                <h3>Sudan</h3>
+
+                <p>
+                    Complete Chapter 1 of the world tour
+                    with Sudan's final fifteen challenges
+                    and the World Explorer finale.
+                </p>
+
+                <div class="country-bottom">
+                    <span>15 Levels</span>
+                    <strong>🥣 Ful Medames</strong>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     FOOD DISCOVERY
+========================================================= -->
+
+<section
+    class="section food-section"
+    id="food"
+>
+
+    <div class="container">
+
+        <div
+            class="section-intro centered"
+            data-reveal
+        >
+            <span class="section-label">
+                SIGNATURE FOODS
+            </span>
+
+            <h2>
+                Discover food
+                <span>
+                    around the world.
+                </span>
+            </h2>
+
+            <p>
+                Food is part of every destination.
+                Each chapter brings its own visual identity
+                and recognizable culinary inspiration.
+            </p>
+        </div>
+
+
+
+        <div class="food-grid">
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🥨</div>
+
+                <span class="food-country">
+                    🇩🇪 GERMANY
+                </span>
+
+                <h3>Pretzel</h3>
+
+                <p>
+                    A classic baked favorite and
+                    an unmistakable symbol of German food culture.
+                </p>
+            </article>
+
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🍕</div>
+
+                <span class="food-country">
+                    🇮🇹 ITALY
+                </span>
+
+                <h3>Pizza</h3>
+
+                <p>
+                    One of Italy's most famous foods
+                    and a colorful fit for Match-3 gameplay.
+                </p>
+            </article>
+
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🥐</div>
+
+                <span class="food-country">
+                    🇫🇷 FRANCE
+                </span>
+
+                <h3>Croissant</h3>
+
+                <p>
+                    A recognizable French classic
+                    bringing elegance to the adventure.
+                </p>
+            </article>
+
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🥘</div>
+
+                <span class="food-country">
+                    🇪🇸 SPAIN
+                </span>
+
+                <h3>Paella</h3>
+
+                <p>
+                    A vibrant Spanish dish inspired
+                    by Mediterranean flavor and color.
+                </p>
+            </article>
+
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🍣</div>
+
+                <span class="food-country">
+                    🇯🇵 JAPAN
+                </span>
+
+                <h3>Sushi</h3>
+
+                <p>
+                    Clean shapes and recognizable colors
+                    perfectly suited to a premium puzzle world.
+                </p>
+            </article>
+
+
+            <article class="food-card" data-reveal>
+                <div class="food-visual">🌮</div>
+
+                <span class="food-country">
+                    🇲🇽 MEXICO
+                </span>
+
+                <h3>Tacos</h3>
+
+                <p>
+                    A colorful Mexican favorite
+                    bringing energy to the world tour.
+                </p>
+            </article>
+
+
+            <article
+                class="food-card food-card-featured"
+                data-reveal
+            >
+                <div class="food-visual">🥣</div>
+
+                <span class="food-country">
+                    🇸🇩 SUDAN
+                </span>
+
+                <h3>Ful Medames</h3>
+
+                <p>
+                    A traditional dish completing the
+                    culinary journey of Chapter 1.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     GAMEPLAY
+========================================================= -->
+
+<section
+    class="section gameplay-section"
+    id="gameplay"
+>
+
+    <div class="container gameplay-layout">
+
+        <div
+            class="gameplay-copy"
+            data-reveal
+        >
+
+            <span class="section-label">
+                MATCH-3 GAMEPLAY
+            </span>
+
+            <h2>
+                Every move can
+                <span>
+                    change the board.
+                </span>
+            </h2>
+
+            <p>
+                Complete objectives within the available moves,
+                combine food tiles and create powerful special pieces.
+            </p>
+
+
+            <div class="mechanic-list">
+
+                <article>
+                    <span class="mechanic-icon">
+                        3
+                    </span>
+
+                    <div>
+                        <h3>Match Three</h3>
+
+                        <p>
+                            Connect matching food tiles
+                            to clear them from the board.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="mechanic-icon">
+                        4
+                    </span>
+
+                    <div>
+                        <h3>Line Clears</h3>
+
+                        <p>
+                            Four-tile matches create powerful
+                            row or column clearing pieces.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="mechanic-icon">
+                        💣
+                    </span>
+
+                    <div>
+                        <h3>Bombs</h3>
+
+                        <p>
+                            T and L matches create explosive
+                            special tiles.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="mechanic-icon">
+                        🌈
+                    </span>
+
+                    <div>
+                        <h3>Color Bomb</h3>
+
+                        <p>
+                            Five-tile matches create one of
+                            the most powerful pieces in the game.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="match-device"
+            data-reveal
+        >
+
+            <div class="match-topbar">
+
+                <div>
+                    <small>GERMANY</small>
+                    <strong>LEVEL 10</strong>
+                </div>
+
+                <div class="match-stars">
+                    ★ ★ ★
+                </div>
+
+            </div>
+
+
+            <div class="objective-row">
+
+                <div>
+                    <small>GOAL</small>
+                    <strong>🍎 12 / 25</strong>
+                </div>
+
+                <div>
+                    <small>MOVES</small>
+                    <strong>18</strong>
+                </div>
+
+            </div>
+
+
+            <div class="match-board">
+
+                <span>🍎</span>
+                <span>🍇</span>
+                <span>🥨</span>
+                <span>🍓</span>
+                <span>🍕</span>
+                <span>🍎</span>
+
+                <span>🍕</span>
+                <span>🥨</span>
+                <span>🍇</span>
+                <span>🍎</span>
+                <span>🍓</span>
+                <span>🍕</span>
+
+                <span>🍓</span>
+                <span>🍎</span>
+                <span>💣</span>
+                <span>🍇</span>
+                <span>🥨</span>
+                <span>🍓</span>
+
+                <span>🥨</span>
+                <span>🍕</span>
+                <span>🍓</span>
+                <span>🌈</span>
+                <span>🍎</span>
+                <span>🍇</span>
+
+                <span>🍇</span>
+                <span>🍓</span>
+                <span>🍎</span>
+                <span>🥨</span>
+                <span>🍕</span>
+                <span>🍇</span>
+
+                <span>🍎</span>
+                <span>🥨</span>
+                <span>🍕</span>
+                <span>🍇</span>
+                <span>🍓</span>
+                <span>🍎</span>
+
+            </div>
+
+
+            <div class="booster-row">
+
+                <div>
+                    <span>🔨</span>
+                    <small>Hammer</small>
+                </div>
+
+                <div>
+                    <span>🔀</span>
+                    <small>Shuffle</small>
+                </div>
+
+                <div>
+                    <span>➕</span>
+                    <small>Moves</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section
+    class="section features-section"
+    id="features"
+>
+
+    <div class="container">
+
+        <div
+            class="section-intro centered"
+            data-reveal
+        >
+            <span class="section-label">
+                GAME FEATURES
+            </span>
+
+            <h2>
+                Built for a
+                <span>
+                    premium adventure.
+                </span>
+            </h2>
+        </div>
+
+
+
+        <div class="feature-grid">
+
+            <article class="feature-card" data-reveal>
+                <div>🌐</div>
+                <h3>3D World Globe</h3>
+                <p>
+                    Explore destinations through a
+                    world-focused travel experience.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>🧩</div>
+                <h3>105 Handcrafted Levels</h3>
+                <p>
+                    Seven countries with fifteen
+                    handcrafted challenges each.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>💥</div>
+                <h3>Special Tiles</h3>
+                <p>
+                    Row clears, column clears,
+                    bombs and color bombs.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>⭐</div>
+                <h3>Star Progression</h3>
+                <p>
+                    Earn stars and unlock
+                    new destinations around the world.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>🎁</div>
+                <h3>Rewards</h3>
+                <p>
+                    Track milestones, coins,
+                    progress and chapter rewards.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>🛂</div>
+                <h3>Passport</h3>
+                <p>
+                    Record completed destinations
+                    through a world-travel passport.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>🎵</div>
+                <h3>Music & Sound</h3>
+                <p>
+                    Audio and haptic feedback
+                    add atmosphere to the journey.
+                </p>
+            </article>
+
+
+            <article class="feature-card" data-reveal>
+                <div>🚫</div>
+                <h3>No Ads</h3>
+                <p>
+                    The current experience is
+                    designed without advertising interruptions.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     TECHNOLOGY
+========================================================= -->
+
+<section class="section technology-section">
+
+    <div class="container">
+
+        <div
+            class="technology-panel"
+            data-reveal
+        >
+
+            <div class="technology-copy">
+
+                <span class="section-label">
+                    BUILT FOR ANDROID
+                </span>
+
+                <h2>
+                    Modern technology.
+                    <span>
+                        Native experience.
+                    </span>
+                </h2>
+
+                <p>
+                    WorldFood 3D Adventure is built as
+                    a native Android application using a
+                    modern state-driven architecture.
                 </p>
 
             </div>
 
 
-            <div class="footer-links">
+            <div class="tech-grid">
+
+                <article>
+                    <span>K</span>
+                    <div>
+                        <strong>Kotlin</strong>
+                        <small>Language</small>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span>◈</span>
+                    <div>
+                        <strong>Jetpack Compose</strong>
+                        <small>User Interface</small>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span>🔥</span>
+                    <div>
+                        <strong>Firebase</strong>
+                        <small>Cloud Services</small>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span>⚡</span>
+                    <div>
+                        <strong>Coroutines</strong>
+                        <small>Async Runtime</small>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="section about-section"
+    id="about"
+>
+
+    <div class="container about-layout">
+
+        <div
+            class="about-copy"
+            data-reveal
+        >
+            <span class="section-label">
+                ABOUT THE GAME
+            </span>
+
+            <h2>
+                More than
+                <span>
+                    a puzzle game.
+                </span>
+            </h2>
+
+            <p>
+                WorldFood 3D Adventure brings together
+                world exploration, international food,
+                progression and Match-3 gameplay.
+            </p>
+
+            <p>
+                The goal is to turn every country into
+                its own chapter of a larger global adventure.
+            </p>
+
+            <a
+                href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link"
+            >
+                Explore the GitHub repository →
+            </a>
+        </div>
+
+
+
+        <div
+            class="project-window"
+            data-reveal
+        >
+
+            <div class="project-window-head">
+
+                <span>
+                    WORLD FOOD
+                </span>
+
+                <span class="live-status">
+                    <i></i>
+                    ACTIVE PROJECT
+                </span>
+
+            </div>
+
+
+            <div class="project-logo">
+                🌍
+            </div>
+
+
+            <h3>
+                WorldFood
+                <span>3D Adventure</span>
+            </h3>
+
+
+            <p>
+                Premium Match-3 Travel Adventure
+            </p>
+
+
+            <div class="project-details">
 
                 <div>
-                    <strong>Explore</strong>
-                    <a href="#adventure">Adventure</a>
-                    <a href="#features">Features</a>
-                    <a href="#countries">Countries</a>
-                    <a href="#gameplay">Gameplay</a>
+                    <small>PLATFORM</small>
+                    <strong>Android</strong>
                 </div>
 
                 <div>
-                    <strong>Project</strong>
+                    <small>ENGINE</small>
+                    <strong>Native</strong>
+                </div>
 
-                    <a
-                        href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        GitHub
-                    </a>
+                <div>
+                    <small>LANGUAGE</small>
+                    <strong>Kotlin</strong>
+                </div>
 
-                    <a href="#technology">
-                        Technology
-                    </a>
-
-                    <a href="#about">
-                        About
-                    </a>
+                <div>
+                    <small>UI</small>
+                    <strong>Compose</strong>
                 </div>
 
             </div>
 
         </div>
 
+    </div>
+</section>
 
-        <div class="container footer-bottom">
+
+
+<!-- =========================================================
+     RELEASE CTA
+========================================================= -->
+
+<section
+    class="section release-section"
+    id="release"
+>
+
+    <div class="container">
+
+        <div
+            class="release-card"
+            data-reveal
+        >
+
+            <div class="release-glow"></div>
+
+            <span class="section-label">
+                CHAPTER 1
+            </span>
+
+
+            <h2>
+                Ready for the
+                <span>
+                    adventure?
+                </span>
+            </h2>
+
 
             <p>
-                © <span data-current-year>2026</span>
-                WorldFood 3D Adventure.
-                All rights reserved.
+                Travel the world.
+                Discover the food.
+                Master the puzzle.
             </p>
 
+
+            <div class="release-meta">
+
+                <span>
+                    Android
+                </span>
+
+                <span>
+                    Version 1.0
+                </span>
+
+                <span>
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+            <a
+                href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-gold"
+            >
+                View Project on GitHub
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-main">
+
+        <div class="footer-brand">
+
+            <a
+                href="#home"
+                class="brand"
+            >
+                <span class="brand-globe">
+                    🌍
+                </span>
+
+                <span class="brand-copy">
+                    <strong>WorldFood</strong>
+                    <small>3D ADVENTURE</small>
+                </span>
+            </a>
+
             <p>
-                Built with Kotlin · Jetpack Compose · Android
+                Travel the World · Discover Food · Master the Puzzle
             </p>
 
         </div>
 
-    </footer>
+
+        <div class="footer-navigation">
+
+            <div>
+                <strong>
+                    EXPLORE
+                </strong>
+
+                <a href="#adventure">Adventure</a>
+                <a href="#countries">World</a>
+                <a href="#food">Food</a>
+                <a href="#gameplay">Gameplay</a>
+            </div>
 
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+            <div>
+                <strong>
+                    GAME
+                </strong>
+
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#release">Release</a>
+            </div>
+
+
+            <div>
+                <strong>
+                    PROJECT
+                </strong>
+
+                <a
+                    href="https://github.com/wadtaktok-dev/WorldFood3DAdventure"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://github.com/wadtaktok-dev/WorldFood3DAdventure/issues"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Issues
+                </a>
+
+                <a
+                    href="https://github.com/wadtaktok-dev/WorldFood3DAdventure/blob/main/SECURITY.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Security
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        <p>
+            ©
+            <span data-current-year>2026</span>
+            WorldFood 3D Adventure.
+            All rights reserved.
+        </p>
+
+        <p>
+            Built with Kotlin · Jetpack Compose · Android
+        </p>
+
+    </div>
+
+</footer>
+
+
+<button
+    type="button"
+    class="back-to-top"
+    aria-label="Back to top"
+    data-back-top
+>
+    ↑
+</button>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
