@@ -1,17 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const menuButton = document.querySelector("[data-menu-button]");
-    const mobileMenu = document.querySelector("[data-mobile-menu]");
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    const revealElements = document.querySelectorAll("[data-reveal]");
-    const yearElement = document.querySelector("[data-current-year]");
-    const header = document.querySelector("[data-header]");
 
-    /* =========================================================
-       MOBILE NAVIGATION
-    ========================================================= */
+    const header =
+        document.querySelector("[data-header]");
 
-    const closeMobileMenu = () => {
-        if (!mobileMenu || !menuButton) return;
+    const menuButton =
+        document.querySelector("[data-menu-button]");
+
+    const mobileMenu =
+        document.querySelector("[data-mobile-menu]");
+
+    const backToTop =
+        document.querySelector("[data-back-top]");
+
+    const year =
+        document.querySelector("[data-current-year]");
+
+    const revealElements =
+        document.querySelectorAll("[data-reveal]");
+
+    const internalLinks =
+        document.querySelectorAll('a[href^="#"]');
+
+
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    if (year) {
+        year.textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const closeMenu = () => {
+
+        if (!menuButton || !mobileMenu) {
+            return;
+        }
 
         mobileMenu.classList.remove("is-open");
 
@@ -19,172 +48,176 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-expanded",
             "false"
         );
+
+        document.body.classList.remove(
+            "menu-open"
+        );
     };
 
-    if (menuButton && mobileMenu) {
-        menuButton.addEventListener("click", () => {
-            const isOpen =
-                mobileMenu.classList.toggle("is-open");
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-        });
+    if (menuButton && mobileMenu) {
+
+        menuButton.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    mobileMenu.classList.toggle(
+                        "is-open"
+                    );
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    isOpen
+                );
+            }
+        );
     }
 
 
-    /* =========================================================
-       CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-    ========================================================= */
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-    document.addEventListener("click", (event) => {
-        if (!menuButton || !mobileMenu) return;
-
-        const clickedButton =
-            menuButton.contains(event.target);
-
-        const clickedMenu =
-            mobileMenu.contains(event.target);
-
-        if (!clickedButton && !clickedMenu) {
-            closeMobileMenu();
+            if (event.key === "Escape") {
+                closeMenu();
+            }
         }
-    });
+    );
 
 
-    /* =========================================================
-       ESC KEY CLOSES MOBILE MENU
-    ========================================================= */
-
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeMobileMenu();
-        }
-    });
-
-
-    /* =========================================================
-       SMOOTH INTERNAL NAVIGATION
-    ========================================================= */
-
-    navLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            const targetId =
-                link.getAttribute("href");
+    document.addEventListener(
+        "click",
+        (event) => {
 
             if (
-                !targetId ||
-                targetId === "#" ||
-                !targetId.startsWith("#")
+                !menuButton ||
+                !mobileMenu
             ) {
                 return;
             }
 
-            let target;
-
-            try {
-                target =
-                    document.querySelector(targetId);
-            } catch {
+            if (
+                !mobileMenu.classList.contains(
+                    "is-open"
+                )
+            ) {
                 return;
             }
 
-            if (!target) return;
+            const clickedMenu =
+                mobileMenu.contains(
+                    event.target
+                );
 
-            event.preventDefault();
+            const clickedButton =
+                menuButton.contains(
+                    event.target
+                );
 
-            const headerHeight =
-                header?.offsetHeight || 0;
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                headerHeight -
-                12;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
-
-            closeMobileMenu();
-        });
-    });
+            if (
+                !clickedMenu &&
+                !clickedButton
+            ) {
+                closeMenu();
+            }
+        }
+    );
 
 
-    /* =========================================================
-       REVEAL ANIMATIONS
-    ========================================================= */
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
 
-    const prefersReducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
+    internalLinks.forEach(
+        (link) => {
 
-    if (prefersReducedMotion) {
-        revealElements.forEach((element) => {
-            element.classList.add("is-visible");
-        });
-    } else if ("IntersectionObserver" in window) {
-        const revealObserver =
-            new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
+            link.addEventListener(
+                "click",
+                (event) => {
 
-                        entry.target.classList.add(
-                            "is-visible"
+                    const href =
+                        link.getAttribute(
+                            "href"
                         );
 
-                        observer.unobserve(
-                            entry.target
-                        );
+                    if (
+                        !href ||
+                        href === "#"
+                    ) {
+                        return;
+                    }
+
+                    let target;
+
+                    try {
+                        target =
+                            document.querySelector(
+                                href
+                            );
+                    } catch {
+                        return;
+                    }
+
+                    if (!target) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    const headerHeight =
+                        header
+                            ? header.offsetHeight
+                            : 0;
+
+                    const top =
+                        target
+                            .getBoundingClientRect()
+                            .top
+                        +
+                        window.scrollY
+                        -
+                        headerHeight
+                        -
+                        12;
+
+                    window.scrollTo({
+                        top,
+                        behavior:
+                            "smooth"
                     });
-                },
-                {
-                    threshold: 0.12,
-                    rootMargin:
-                        "0px 0px -40px 0px"
+
+                    closeMenu();
                 }
             );
-
-        revealElements.forEach((element) => {
-            revealObserver.observe(element);
-        });
-    } else {
-        revealElements.forEach((element) => {
-            element.classList.add("is-visible");
-        });
-    }
+        }
+    );
 
 
-    /* =========================================================
-       CURRENT YEAR
-    ========================================================= */
-
-    if (yearElement) {
-        yearElement.textContent =
-            new Date().getFullYear();
-    }
-
-
-    /* =========================================================
-       HEADER SCROLL STATE
-    ========================================================= */
+    /* =====================================================
+       HEADER SCROLL EFFECT
+    ===================================================== */
 
     const updateHeader = () => {
-        if (!header) return;
+
+        if (!header) {
+            return;
+        }
 
         header.classList.toggle(
             "is-scrolled",
-            window.scrollY > 20
+            window.scrollY > 25
         );
     };
 
+
     updateHeader();
+
 
     window.addEventListener(
         "scroll",
@@ -195,92 +228,247 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* =========================================================
-       ACTIVE NAVIGATION SECTION
-    ========================================================= */
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
 
-    const sections =
-        [...document.querySelectorAll("main section[id]")];
+    const updateBackButton = () => {
 
-    const sectionLinks =
-        [...document.querySelectorAll(
-            'a[href^="#"]'
-        )];
+        if (!backToTop) {
+            return;
+        }
 
-    if (
-        sections.length > 0 &&
+        backToTop.classList.toggle(
+            "visible",
+            window.scrollY > 650
+        );
+    };
+
+
+    updateBackButton();
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackButton,
+        {
+            passive: true
+        }
+    );
+
+
+    if (backToTop) {
+
+        backToTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior:
+                        "smooth"
+                });
+            }
+        );
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATIONS
+    ===================================================== */
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    if (reducedMotion) {
+
+        revealElements.forEach(
+            (element) => {
+
+                element.classList.add(
+                    "is-visible"
+                );
+            }
+        );
+
+    } else if (
         "IntersectionObserver" in window
     ) {
-        const navigationObserver =
+
+        const revealObserver =
+            new IntersectionObserver(
+                (
+                    entries,
+                    observer
+                ) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+                                return;
+                            }
+
+                            entry.target
+                                .classList
+                                .add(
+                                    "is-visible"
+                                );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+                        }
+                    );
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+
+
+        revealElements.forEach(
+            (element) => {
+
+                revealObserver.observe(
+                    element
+                );
+            }
+        );
+
+    } else {
+
+        revealElements.forEach(
+            (element) => {
+
+                element.classList.add(
+                    "is-visible"
+                );
+            }
+        );
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
+
+    const navigationLinks =
+        document.querySelectorAll(
+            '.desktop-nav a[href^="#"]'
+        );
+
+
+    if (
+        sections.length &&
+        "IntersectionObserver" in window
+    ) {
+
+        const sectionObserver =
             new IntersectionObserver(
                 (entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) {
-                            return;
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+                                return;
+                            }
+
+                            const id =
+                                entry.target.id;
+
+                            navigationLinks
+                                .forEach(
+                                    (link) => {
+
+                                        const active =
+                                            link
+                                                .getAttribute(
+                                                    "href"
+                                                )
+                                            ===
+                                            `#${id}`;
+
+                                        link.classList
+                                            .toggle(
+                                                "is-active",
+                                                active
+                                            );
+                                    }
+                                );
                         }
-
-                        const id =
-                            entry.target.id;
-
-                        sectionLinks.forEach((link) => {
-                            const isActive =
-                                link.getAttribute("href") ===
-                                `#${id}`;
-
-                            link.classList.toggle(
-                                "is-active",
-                                isActive
-                            );
-                        });
-                    });
+                    );
                 },
                 {
                     rootMargin:
-                        "-30% 0px -60% 0px",
+                        "-35% 0px -55% 0px",
                     threshold: 0
                 }
             );
 
-        sections.forEach((section) => {
-            navigationObserver.observe(section);
-        });
+
+        sections.forEach(
+            (section) => {
+
+                sectionObserver.observe(
+                    section
+                );
+            }
+        );
     }
 
 
-    /* =========================================================
-       RESPONSIVE MENU RESET
-    ========================================================= */
+    /* =====================================================
+       DESKTOP RESIZE RESET
+    ===================================================== */
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 760) {
-            closeMobileMenu();
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth >
+                900
+            ) {
+                closeMenu();
+            }
         }
-    });
+    );
 
 
-    /* =========================================================
-       EXTERNAL LINK SECURITY
-    ========================================================= */
+    /* =====================================================
+       EXTERNAL LINKS
+    ===================================================== */
 
     const externalLinks =
         document.querySelectorAll(
             'a[target="_blank"]'
         );
 
-    externalLinks.forEach((link) => {
-        const rel =
-            new Set(
-                (link.getAttribute("rel") || "")
-                    .split(/\s+/)
-                    .filter(Boolean)
+
+    externalLinks.forEach(
+        (link) => {
+
+            link.setAttribute(
+                "rel",
+                "noopener noreferrer"
             );
+        }
+    );
 
-        rel.add("noopener");
-        rel.add("noreferrer");
-
-        link.setAttribute(
-            "rel",
-            [...rel].join(" ")
-        );
-    });
 });
