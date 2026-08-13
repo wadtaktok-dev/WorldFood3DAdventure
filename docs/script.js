@@ -1317,45 +1317,27 @@ document.addEventListener(
                     time;
 
 
-                if (
-                    !dragging &&
-                    !reducedMotion
-                ) {
+                if (!dragging) {
 
-                    /*
-                     * Natural slow world rotation.
-                     */
+    // Slow automatic rotation on all browsers,
+    // including Firefox on Ubuntu.
+    earthGroup.rotation.y +=
+        0.085 *
+        deltaTime;
 
-                    earthGroup
-                        .rotation
-                        .y +=
-                        .105 *
-                        deltaTime;
+    // Keep drag inertia.
+    earthGroup.rotation.y +=
+        rotationVelocityX;
 
+    earthGroup.rotation.x +=
+        rotationVelocityY;
 
-                    /*
-                     * Pointer inertia.
-                     */
+    rotationVelocityX *=
+        0.92;
 
-                    earthGroup
-                        .rotation
-                        .y +=
-                        rotationVelocityX;
-
-
-                    earthGroup
-                        .rotation
-                        .x +=
-                        rotationVelocityY;
-
-
-                    rotationVelocityX *=
-                        .92;
-
-
-                    rotationVelocityY *=
-                        .92;
-                }
+    rotationVelocityY *=
+        0.92;
+}
 
 
                 if (!reducedMotion) {
